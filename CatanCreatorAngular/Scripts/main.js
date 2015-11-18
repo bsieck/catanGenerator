@@ -460,7 +460,7 @@
     var row2Position = 0;
     var row3Position = 0;
     var row4Position = 0;
-    var lwwwaaaaw;
+    var lwwwaaaafw;
 
     var tileStack = tileBaseStack;
     var portStack = portBaseStack;
