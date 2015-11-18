@@ -528,25 +528,31 @@
                 </div>
 
             </div>
-            <div class="col-md-2 col-md-offset-5">
+
+            <div class="col-sm-12">
+                <h3 id="current-max-val">0</h3>
+                <h3 id="current-port-val">0</h3>
+
+            </div>
+            <div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4">
                 <h3>Max Dots Per Intersection</h3>
                 <form id="dpi-range-form" action="#">
                     <p class="range-field">
                         <input type="range" id="dpi-range-slider" min="4" max="15" />
                     </p>
                 </form>
-            </div>
-            <div class="col-md-2 col-md-offset-5">
                 <h3>Port </h3>
                 <form id="port-range-form" action="#">
                     <p class="range-field">
                         <input type="range" id="port-range-slider" min="0" max="100" />
                     </p>
                 </form>
+                <div class="col-sm-12 text-center">
+                    <button id="generate-board-btn" class="btn center-block">Generate</button>
+                </div>
             </div>
-            <div class="col-md-12 text-center">
-                <button id="generate-board-btn" class="btn center-block">Generate</button>
-            </div>
+            
+            
         </div>
 
     </div>

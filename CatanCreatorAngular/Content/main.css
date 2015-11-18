@@ -89,4 +89,10 @@ footer {
   display: inline-block;
   margin: 0 auto;
 }
+#current-max-val {
+  text-align: center;
+}
+#current-port-val {
+  text-align: center;
+}
 /*# sourceMappingURL=main.css.map */

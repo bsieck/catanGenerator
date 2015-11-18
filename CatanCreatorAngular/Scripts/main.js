@@ -1,18 +1,16 @@
 ﻿$(function () {
 
-
-    /*
+    /* 
+    
+    The following code is related to the SVG implementation of the generator
+    
     var edgeLength = 3;
-
     var colorBank = ["rgba(238, 110, 91,",
                      "rgba(146, 203, 92,",
                      "rgba(254, 198, 45,",
                      "rgba(143, 144, 155,",
                      "rgba(39, 102, 59,",
                      "rgba(232, 190, 127,"];
-
-   
-
 
     // Standard 4 Person Game 
     var resourceBank = [
@@ -23,7 +21,6 @@
       ['ore', "rgba(143, 144, 155, 0.8"],
       ['desert', "rgba(232, 190, 127, 0.8"]
     ];
-
 
     var tileBaseStack = [
       { type: "brick", numberToken: 2 },
@@ -56,35 +53,29 @@
     var numberTokenStack = numberTokenBaseStack;
 
     function resetStacks() {
-
         tileStack = shuffle(tileBaseStack.slice(0));
         numberTokenStack = shuffle(numberTokenBaseStack.slice(0));
-
+        
         for (var i = 0; i < tileStack.length; i++) {
             if (tileStack[i].type === 'desert') {
                 break;
             }
             tileStack[i].numberToken = numberTokenStack[i];
         }
-
     }
 
     function shuffle(array) {
         var currentIndex = array.length, temporaryValue, randomIndex;
-
         // While there remain elements to shuffle...
         while (0 !== currentIndex) {
-
             // Pick a remaining element...
             randomIndex = Math.floor(Math.random() * currentIndex);
             currentIndex -= 1;
-
             // And swap it with the current element.
             temporaryValue = array[currentIndex];
             array[currentIndex] = array[randomIndex];
             array[randomIndex] = temporaryValue;
         }
-
         return array;
     }
 
@@ -107,7 +98,6 @@
 
     var reseourceType = $('#current-resource');
     var reseourceQuantity = $('#current-quantity');
-
 
     function getResourceQuantity(type) {
         switch (type) {
@@ -177,10 +167,8 @@
             resource = resourceBank[rand][2];
             resourceBank[rand][1] -= 1;
         } else {
-
             getRandResource();
         }
-
         return resource;
     }
 
@@ -199,15 +187,12 @@
           .attr("height", 300)
           .attr('style', 'margin: 0 auto');
 
-  
-
     drawHexagon =
       d3.svg.line()
             .x(function (d) { return d.x; })
             .y(function (d) { return d.y; })
             .interpolate("linear-closed")
     ;//.tension("0");
-
 
     var numHexagons = 3 * (edgeLength * edgeLength + edgeLength) + 1
     var cX = svgContainer.attr('width') / 2;
@@ -216,7 +201,6 @@
     //var opacity = 0.15 - dOpacity;
     var startingOpac = 0.75;
     var hoverOpac = 1;
-
     
     function addText(p, text) {
         var t = document.createElementNS("http://www.w3.org/2000/svg", "text");
@@ -227,7 +211,6 @@
         t.setAttribute("font-size", "14");
         p.parentNode.insertBefore(t, p.nextSibling);
     }
-    
 
     function makeHexagon(dX, dY) {
         //opacity += dOpacity;
@@ -244,18 +227,11 @@
                               .attr('class', 'tile transition-all-normal');
     }
 
-
-
-   
-
-    
-
     var distanceBetweenHexes = h * radius * 2 + margin;
 
     function generateHexGrid() {
         $('path').remove();
         $('text').remove();
-
 
         resetStacks();
 
@@ -335,11 +311,7 @@
         //var newColor = rgbaString.replace("1","0.75");
         return newColor;
     }
-
-    
-
     */
-
     
 
     ////////////////////////////////
@@ -355,36 +327,25 @@
     }
 
     var gameObjectData;
-
     var gameDataArray;
 
     function getResourceColor(type) {
-
         switch (type) {
-
             case 'brick':
                 return "rgba(238, 110, 91, 0.8)";
-        
             case 'wood':
                 return "rgba(39, 102, 59, 0.8)";
-
             case 'wheat':
                 return "rgba(254, 198, 45, 0.8)";
-            
             case 'sheep':
                 return "rgba(146, 203, 92, 0.8)";
-            
             case 'ore':
                 return "rgba(143, 144, 155, 0.8)";
-            
             case 'desert': 
                 return "rgba(232, 190, 127, 0.8)";
-
             default:
                 return "Invalid type";
-           
         }
-
     }
 
     function getResourceType(rgba) {
@@ -393,27 +354,19 @@
 
             case "rgba(238, 110, 91, 0.8)":
                 return 'brick';
-
             case "rgba(39, 102, 59, 0.8)":
                 return 'wood';
-
             case "rgba(254, 198, 45, 0.8)":
                 return 'wheat';
-
             case "rgba(146, 203, 92, 0.8)":
                 return 'sheep';
-
             case "rgba(143, 144, 155, 0.8)":
                 return 'ore';
-
             case "rgba(232, 190, 127, 0.8)":
                 return 'desert';
-
             default:
                 return "Invalid rgba code";
-
         }
-
     }
 
     var tileBaseStack = [
@@ -460,14 +413,11 @@
     var row2Position = 0;
     var row3Position = 0;
     var row4Position = 0;
-    var lwwwaaaafw;
-
     var tileStack = tileBaseStack;
     var portStack = portBaseStack;
     var numberTokenStack = numberTokenBaseStack;
 
     function resetStacks() {
-
         tileStack = shuffle(tileBaseStack.slice(0));
         portStack = shuffle(portBaseStack.slice(0));
         numberTokenStack = shuffle(numberTokenBaseStack.slice(0));
@@ -499,57 +449,70 @@
         row2Position = 0;
         row3Position = 0;
         row4Position = 0;
-
-
     }
 
     function shuffle(array) {
         var currentIndex = array.length, temporaryValue, randomIndex;
-
         // While there remain elements to shuffle...
         while (0 !== currentIndex) {
-
             // Pick a remaining element...
             randomIndex = Math.floor(Math.random() * currentIndex);
             currentIndex -= 1;
-
             // And swap it with the current element.
             temporaryValue = array[currentIndex];
             array[currentIndex] = array[randomIndex];
             array[randomIndex] = temporaryValue;
         }
-
         return array;
     }
 
     function convertToDotVal(val) {
-
         switch (val) {
 
-            case 2 || 12:
+            case 2: 
+            case 12:
                 return 1;
-
-            case 3 || 11:
+            case 3:
+            case 11:
                 return 2;
-
-            case 4 || 10:
+            case 4:
+            case 10:
                 return 3;
-
-            case 5 || 9:
+            case 5:
+            case 9:
                 return 4;
-
-            case 6 || 8:
+            case 6:
+            case 8:
                 return 5;
-
             case 7:
                 return 0;
-
             default:
                 return 0;
-
         }
 
     }
+
+    var intersectionDataArray = [
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0]
+    ]
+
+    var maxDPIVal = 0;
+    var maxPortVal = 0;
+    var dpiDebug = $('#current-max-val');
+    var portDebug = $('#current-port-val');
+
+    $('#dpi-range-slider').on('change', function () {
+        maxDPIVal = this.value;
+        dpiDebug.text(maxDPIVal);
+    });
+
+    $('#port-range-slider').on('change', function () {
+        maxPortVal = this.value;
+        portDebug.text(maxPortVal);
+    });
 
     function findMaxValueIntersection() {
         var currentMax = 0;
@@ -558,25 +521,23 @@
 
             // var jAdj = gameDataArray[i].length > gameDataArray[i - 1].length ? -1 : 0;
             var rightIntersectionVal = 0;
+            var bottomRightIntersectionVal = 0;
+            var bottomLeftIntersectionVal = 0;
+
             for (j = 0; j < gameDataArray[i].length; j++) {
-
                 if (gameDataArray[i].length > j) {
-                    
+                    if ((Math.round(gameDataArray.length)/2) > i) {
+                        bottomLeftIntersectionVal = gameDataArray[i][j] + gameDataArray[i + 1][j];
+                        bottomRightIntersectionVal = gameDataArray[i][j] + gameDataArray[i + 1][j];
+                    } 
                     rightIntersectionVal = gameDataArray[i][j] + gameDataArray[i][j + 1];
-
-                    
-
                     rightIntersectionVal > currentMax ? currentMax = rightIntersectionVal : currentMax = currentMax; 
                 } 
-
             }
         }
 
         console.log(currentMax);
-
     }
-
-    
 
     function modifyHexComponents(hexTile, gameTile) {
 
@@ -609,49 +570,36 @@
             var activeNumberToken = newTileType.numberToken;
 
             if (tileIntId >= 30 && tileIntId < 40) {
-
                 gameDataArray[rowNum][row0Position] = activeNumberToken;
                 row0Position++;
-
             }
             if (tileIntId >= 40 && tileIntId < 50) {
-
                 rowNum = 1;
                 gameDataArray[rowNum][row1Position] = activeNumberToken;
                 row1Position++;
-               
             }
             if (tileIntId >= 50 && tileIntId < 60) {
-
                 rowNum = 2;
                 gameDataArray[rowNum][row2Position] = activeNumberToken;
                 row2Position++;
-
             }
             if (tileIntId >= 60 && tileIntId < 70) {
-
                 rowNum = 3;
                 gameDataArray[rowNum][row3Position] = activeNumberToken;
                 row3Position++;
-
             }
             if (tileIntId >= 70 && tileIntId < 80) {
-
                 rowNum = 4;
                 gameDataArray[rowNum][row4Position] = activeNumberToken;
                 row4Position++;
-
             }
             
             top.css('border-bottom', '15px solid ' + activeColor + '');
             middle.css('background', activeColor).html('' + newTileType.numberToken + '');
             bottom.css('border-top', '15px solid ' + activeColor + '');
             
-            var tileObject = {gameTileId:tileIntId, rowId: rowNum, rowPosition: rowPosition, type: activeType, numberTokenValue: activeNumberToken};
+            var tileObject = {gameTileId:tileIntId, rowId: rowNum, rowPosition: rowPosition, type: activeType, numberTokenValue: activeNumberToken, dotValue: convertToDotVal(activeNumberToken)};
             gameObjectData.push(tileObject);
-
-
-
         }
         
     }
@@ -690,9 +638,7 @@
         $('#hex-40')
     ];
 
-
     function generateGameBoard() {
-        
 
         resetStacks();
         resetGameData();
@@ -710,24 +656,15 @@
         for (i = 0; i < fourPersonActiveTileArray.length; i++) {
             modifyHexComponents(fourPersonActiveTileArray[i], true);
         }
-
         for (i = 0; i < fourPersonActivePortArray.length; i++) {
             modifyHexComponents(fourPersonActivePortArray[i], false);
         }
-
         findMaxValueIntersection();
-
-        
-
         console.table(gameObjectData);
         console.table(gameDataArray);
 
     }
-
     generateGameBoard();
-        
     $('#generate-board-btn').click(generateGameBoard);
-
-    
     
 });
