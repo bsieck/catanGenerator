@@ -1,0 +1,107 @@
+﻿@import "mixins.less";
+
+h1, h3 {
+  text-align: center;
+  color: #666;
+}
+
+h1 {
+    font-size: @h1-lg !important;
+}
+h2 {
+    font-size: @h2-lg !important;
+}
+h3 {
+    font-size: @h3-lg !important;
+}
+
+body {
+  background-color: #fbfbfb;
+  font-family: Roboto sans-serif;
+}
+
+footer {
+    padding-top: 0 !important;
+}
+
+#board-container {
+  display: inline-block;
+  margin: 0 auto;
+
+}
+
+.tile {
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+  .number-token:after {
+      position: absolute;
+      z-index: 5;
+      text-align: center;
+      color: #4d4d4d;
+  }
+}
+
+.transition-all-bez-normal {
+    -moz-transition: all 200ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    -o-transition: all 200ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    -webkit-transition: all 200ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: all 200ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.transition-all-normal {
+    -moz-transition: all ease-in-out 0.2s;
+    -o-transition: all ease-in-out 0.2s;
+    -webkit-transition: all ease-in-out 0.2s;
+    transition: all ease-in-out 0.2s;
+}
+
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+
+#dpi-range-form, #port-range-form {
+    margin-top: @margin-top-md;
+}
+
+.hex {
+    float: left;
+    margin-left: @hex-margin-left;
+    margin-bottom: @hex-margin-bottom;
+}
+.hex .top {
+    width: 0;
+    border-bottom: @hex-top-border-bottom;
+    border-left: @hex-top-border-left;
+    border-right: @hex-top-border-right;
+}
+.hex .middle {
+    width: @hex-middle-width;
+    height: @hex-middle-height;
+    background: @hex-middle-background;
+    color: #1d1d1d;
+    font-size: 18px;
+    line-height: @hex-middle-height;
+}
+.hex .bottom {
+    width: 0;
+    border-top: @hex-bottom-border-top;
+    border-left: @hex-bottom-border-left;
+    border-right: @hex-bottom-border-right;
+}
+.hex-row {
+    clear: left;
+}
+.hex-row.even {
+    margin-left: @hex-row-even-margin-left;
+}
+
+#board-container-2 {
+    display: inline-block;
+    margin: 0 auto;
+
+}
+
+
+
