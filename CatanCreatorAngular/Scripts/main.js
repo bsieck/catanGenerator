@@ -404,7 +404,7 @@
     ];
 
     var numberTokenBaseStack = [
-      2, 3, 3, 4, 4, 5, 5, 6, 6, 8, 8, 9, 9, 10, 10, 11, 11, 12
+      2, 3, 3, 4, 4, 5, 5, 6, 6, 8, 8, 9, 9, 10, 10, 11, 11, 12, 7
     ];
 
     var rowNum = 0;
@@ -413,19 +413,24 @@
     var row2Position = 0;
     var row3Position = 0;
     var row4Position = 0;
-    var tileStack = tileBaseStack;
+    var tileStack = shuffle(tileBaseStack.slice(0));
     var portStack = portBaseStack;
     var numberTokenStack = numberTokenBaseStack;
 
     function resetStacks() {
+        
         tileStack = shuffle(tileBaseStack.slice(0));
-        portStack = shuffle(portBaseStack.slice(0));
+
+        if (randomPorts) {
+            portStack = shuffle(portBaseStack.slice(0));
+        } else {
+            portStack = portBaseStack.slice(0);
+        }
+        
         numberTokenStack = shuffle(numberTokenBaseStack.slice(0));
 
         for (var i = 0; i < tileStack.length; i++) {
-            if (tileStack[i].type === 'desert') {
-                break;
-            }
+            
             tileStack[i].numberToken = numberTokenStack[i];
         }
 
@@ -441,7 +446,9 @@
         [0, 0, 0, 0],
         [0, 0, 0],
 
-        ]
+        ];
+
+        
 
         rowNum = 0;
         row0Position = 0;
@@ -492,51 +499,218 @@
 
     }
 
-    var intersectionDataArray = [
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0]
-    ]
+    
 
-    var maxDPIVal = 0;
-    var maxPortVal = 0;
+    var maxDPIVal = $('#dpi-range-slider').val();
     var dpiDebug = $('#current-max-val');
-    var portDebug = $('#current-port-val');
+    var randomPorts = false;
+    dpiDebug.text(maxDPIVal);
+
 
     $('#dpi-range-slider').on('change', function () {
         maxDPIVal = this.value;
         dpiDebug.text(maxDPIVal);
     });
 
+    $('#filled-in-box').click(function () {
+        randomPorts = !randomPorts;
+    });
+
+    /*
     $('#port-range-slider').on('change', function () {
         maxPortVal = this.value;
         portDebug.text(maxPortVal);
     });
+    */
 
+    /*
+    // NumberTokenValue based
     function findMaxValueIntersection() {
         var currentMax = 0;
+        var midRow = Math.round(gameDataArray.length / 2);
 
-        for (i = 1; i < gameDataArray.length; i++) {
+        for (i = 0; i < gameDataArray.length-1; i++) {
 
-            // var jAdj = gameDataArray[i].length > gameDataArray[i - 1].length ? -1 : 0;
-            var rightIntersectionVal = 0;
-            var bottomRightIntersectionVal = 0;
-            var bottomLeftIntersectionVal = 0;
+            var rightTileVal = 0;
+            var bottomLeftTileVal = 0;
+            var bottomRightTileVal = 0;
+            var triIntersection1Val = 0;
+            var triIntersection2Val = 0;
+            var currentTileVal = 0;
+            var largerIntersectionVal = 0;
+            var tri1Set = false;
+            var tri2Set = false;
 
             for (j = 0; j < gameDataArray[i].length; j++) {
-                if (gameDataArray[i].length > j) {
-                    if ((Math.round(gameDataArray.length)/2) > i) {
-                        bottomLeftIntersectionVal = gameDataArray[i][j] + gameDataArray[i + 1][j];
-                        bottomRightIntersectionVal = gameDataArray[i][j] + gameDataArray[i + 1][j];
-                    } 
-                    rightIntersectionVal = gameDataArray[i][j] + gameDataArray[i][j + 1];
-                    rightIntersectionVal > currentMax ? currentMax = rightIntersectionVal : currentMax = currentMax; 
-                } 
+                currentTileVal = gameDataArray[i][j];
+                tri1Set = false;
+                tri2Set = false;
+                if (i < midRow - 1) {
+                    if (j < gameDataArray[i].length - 1) {
+
+                        rightTileVal = gameDataArray[i][j + 1];
+                        bottomLeftTileVal = gameDataArray[i + 1][j];
+                        bottomRightTileVal = gameDataArray[i + 1][j + 1];
+                     
+                    }
+                    if (j == gameDataArray[i].length - 1) {
+
+                        bottomLeftTileVal = gameDataArray[i + 1][j];
+                        bottomRightTileVal = gameDataArray[i + 1][j + 1];
+                        triIntersection2Val = 0;
+                        tri2Set = true;
+                        
+                    }
+                    triIntersection1Val = currentTileVal + bottomLeftTileVal + bottomRightTileVal;
+
+                    if (!tri2Set) {
+                        triIntersection2Val = currentTileVal + rightTileVal + bottomRightTileVal;
+                    }
+
+
+                }
+
+                if (i >= midRow - 1) {
+
+                    if (j == 0) {
+
+                        rightTileVal = gameDataArray[i][j + 1];
+                        bottomLeftTileVal = 0;
+                        bottomRightTileVal = gameDataArray[i + 1][j];
+                        triIntersection1Val = 0;
+                        tri1Set = true;
+
+                    }
+                    if (j < gameDataArray[i].length - 1) {
+
+                        rightTileVal = gameDataArray[i][j + 1];
+                        bottomLeftTileVal = gameDataArray[i + 1][j-1];
+                        bottomRightTileVal = gameDataArray[i + 1][j];
+
+                    }
+                    if (j == gameDataArray[i].length - 1) {
+
+                        bottomLeftTileVal = gameDataArray[i + 1][j - 1];
+                        bottomRightTileVal = 0;
+                        triIntersection2Val = 0;
+                        tri2Set = true;
+
+                    }
+
+                    if (!tri1Set){
+                        triIntersection1Val = currentTileVal + bottomLeftTileVal + bottomRightTileVal;
+                    }
+                    if (!tri2Set) {
+                        triIntersection2Val = currentTileVal + rightTileVal + bottomRightTileVal;
+                    }
+
+                }
+
+                largerIntersectionVal = Math.max(triIntersection1Val, triIntersection2Val);
+                largerIntersectionVal > currentMax ? currentMax = largerIntersectionVal : currentMax = currentMax;
+                
+                //rightIntersectionVal > currentMax ? currentMax = rightIntersectionVal : currentMax = currentMax;
+                //console.log('Tile: ' + i + ',' + j + ' R Val: ' + rightIntersectionVal + ' BL Val: ' + bottomLeftIntersectionVal + ' BR Val: ' + bottomRightIntersectionVal);
+                console.log('Tile: ' + i + ',' + j + ' Val: '+ currentTileVal + ' i1 Val: ' + triIntersection1Val + ' i2 Val: ' + triIntersection2Val);
             }
         }
 
         console.log(currentMax);
+    }
+    */
+
+    // Dot value based
+    function findMaxValueIntersection() {
+        var currentMax = 0;
+        var midRow = Math.round(gameDataArray.length / 2);
+
+        for (i = 0; i < gameDataArray.length - 1; i++) {
+
+            var rightTileVal = 0;
+            var bottomLeftTileVal = 0;
+            var bottomRightTileVal = 0;
+            var triIntersection1Val = 0;
+            var triIntersection2Val = 0;
+            var currentTileVal = 0;
+            var largerIntersectionVal = 0;
+            var tri1Set = false;
+            var tri2Set = false;
+
+            for (j = 0; j < gameDataArray[i].length; j++) {
+                currentTileVal = convertToDotVal(gameDataArray[i][j]);
+                tri1Set = false;
+                tri2Set = false;
+                if (i < midRow - 1) {
+                    if (j < gameDataArray[i].length - 1) {
+
+                        rightTileVal = convertToDotVal(gameDataArray[i][j + 1]);
+                        bottomLeftTileVal = convertToDotVal(gameDataArray[i + 1][j]);
+                        bottomRightTileVal = convertToDotVal(gameDataArray[i + 1][j + 1]);
+
+                    }
+                    if (j == gameDataArray[i].length - 1) {
+
+                        bottomLeftTileVal = convertToDotVal(gameDataArray[i + 1][j]);
+                        bottomRightTileVal = convertToDotVal(gameDataArray[i + 1][j + 1]);
+                        triIntersection2Val = 0;
+                        tri2Set = true;
+
+                    }
+                    triIntersection1Val = currentTileVal + bottomLeftTileVal + bottomRightTileVal;
+
+                    if (!tri2Set) {
+                        triIntersection2Val = currentTileVal + rightTileVal + bottomRightTileVal;
+                    }
+
+
+                }
+
+                if (i >= midRow - 1) {
+
+                    if (j == 0) {
+
+                        rightTileVal = convertToDotVal(gameDataArray[i][j + 1]);
+                        bottomLeftTileVal = 0;
+                        bottomRightTileVal = convertToDotVal(gameDataArray[i + 1][j]);
+                        triIntersection1Val = 0;
+                        tri1Set = true;
+
+                    }
+                    if (j < gameDataArray[i].length - 1) {
+
+                        rightTileVal = convertToDotVal(gameDataArray[i][j + 1]);
+                        bottomLeftTileVal = convertToDotVal(gameDataArray[i + 1][j - 1]);
+                        bottomRightTileVal = convertToDotVal(gameDataArray[i + 1][j]);
+
+                    }
+                    if (j == gameDataArray[i].length - 1) {
+
+                        bottomLeftTileVal = convertToDotVal(gameDataArray[i + 1][j - 1]);
+                        bottomRightTileVal = 0;
+                        triIntersection2Val = 0;
+                        tri2Set = true;
+
+                    }
+
+                    if (!tri1Set) {
+                        triIntersection1Val = currentTileVal + bottomLeftTileVal + bottomRightTileVal;
+                    }
+                    if (!tri2Set) {
+                        triIntersection2Val = currentTileVal + rightTileVal + bottomRightTileVal;
+                    }
+
+                }
+
+                largerIntersectionVal = Math.max(triIntersection1Val, triIntersection2Val);
+                largerIntersectionVal > currentMax ? currentMax = largerIntersectionVal : currentMax = currentMax;
+
+                
+                //console.log('Tile: ' + i + ',' + j + ' dotVal: ' + currentTileVal + ' i1 dotVal: ' + triIntersection1Val + ' i2 dotVal: ' + triIntersection2Val);
+            }
+        }
+
+        //console.log(currentMax);
+        return currentMax;
     }
 
     function modifyHexComponents(hexTile, gameTile) {
@@ -552,6 +726,8 @@
 
         top = $('#' + currentTileId + ' > .top');
         middle = $('#' + currentTileId + ' > .middle');
+        //middleDots = $('#' + currentTileId + ' > .middle ul');
+        //middleNumber = $('#' + currentTileId + ' > .middle span');
         bottom = $('#' + currentTileId + ' > .bottom');
 
         if (!gameTile) {
@@ -568,6 +744,7 @@
             var activeColor = getResourceColor(newTileType.type);
             var activeType = getResourceType(activeColor);
             var activeNumberToken = newTileType.numberToken;
+            var dotVal = convertToDotVal(activeNumberToken);
 
             if (tileIntId >= 30 && tileIntId < 40) {
                 gameDataArray[rowNum][row0Position] = activeNumberToken;
@@ -598,7 +775,7 @@
             middle.css('background', activeColor).html('' + newTileType.numberToken + '');
             bottom.css('border-top', '15px solid ' + activeColor + '');
             
-            var tileObject = {gameTileId:tileIntId, rowId: rowNum, rowPosition: rowPosition, type: activeType, numberTokenValue: activeNumberToken, dotValue: convertToDotVal(activeNumberToken)};
+            var tileObject = {gameTileId:tileIntId, rowId: rowNum, rowPosition: rowPosition, type: activeType, numberTokenValue: activeNumberToken, dotValue: dotVal};
             gameObjectData.push(tileObject);
         }
         
@@ -638,11 +815,65 @@
         $('#hex-40')
     ];
 
-    function generateGameBoard() {
+    function generateRandomFromRange(min, max) {
+        var rand = Math.floor((Math.random() * max) + min);
+        return rand;
+    }
 
+    function selectNextRandomTileNotEqualToCurrent(val, min, max) {
+        var tempVal = val;
+        var tempMin = min;
+        var tempMax = max;
+        var rand = generateRandomFromRange(tempMin, tempMax);
+        if (rand == tempVal) {
+            selectNextRandomTileNotEqualToCurrent(tempVal, tempMin, tempMax);
+        }
+        return rand;
+    }
+
+    function swapDesertTile() {
+        
+
+        for (i = 0; i < gameObjectData.length; i++) {
+            if (gameObjectData[i].type === "desert" && gameObjectData[i].numberTokenValue != 7) {
+                console.log('Found a bad desert at tile ' + i);
+
+                  
+                for (k = 0; k < gameObjectData.length; k++) {
+                    if (gameObjectData[k].numberTokenValue == 7) {
+                        console.log('Swapping token with tile ' + k);
+
+                        gameObjectData[k].numberTokenValue = gameObjectData[i].numberTokenValue;
+                        gameObjectData[i].numberTokenValue = 7;
+
+                        $('#hex-' + gameObjectData[i].gameTileId + ' > .middle').html('' + gameObjectData[i].numberTokenValue + '');
+                        $('#hex-' + gameObjectData[k].gameTileId + ' > .middle').html('' + gameObjectData[k].numberTokenValue + '');
+
+                    }
+                }
+                /*
+                var tempTokenVal = 0;
+                var randTileIndex = selectNextRandomTileNotEqualToCurrent(i, 0, gameObjectData.length);
+                tempTokenVal = gameObjectData[randTileIndex].numberTokenValue;
+                gameObjectData[i].numberTokenValue = 7;
+                gameObjectData[randTileIndex].numberTokenValue = 7;
+                */
+                console.log('Swapped table');
+
+            } 
+        }
+
+        
+
+    }
+
+    function generateGameBoard() {
+        console.clear();
+        var specifiedMaxDPI = maxDPIVal;
         resetStacks();
         resetGameData();
         gameObjectData = [];
+        gameObjectDataDotValues = [];
 
         gameDataArray = [
             [0, 0, 0],
@@ -650,18 +881,27 @@
             [0, 0, 0, 0, 0],
             [0, 0, 0, 0],
             [0, 0, 0],
-        ]
+        ];
         
         console.clear();
+
         for (i = 0; i < fourPersonActiveTileArray.length; i++) {
             modifyHexComponents(fourPersonActiveTileArray[i], true);
         }
         for (i = 0; i < fourPersonActivePortArray.length; i++) {
             modifyHexComponents(fourPersonActivePortArray[i], false);
         }
-        findMaxValueIntersection();
+        swapDesertTile();
+
+        console.log('Specified Max DPI: ' + specifiedMaxDPI);
+        console.log('Actual Max DPI: ' + findMaxValueIntersection());
         console.table(gameObjectData);
         console.table(gameDataArray);
+        
+        if (findMaxValueIntersection() > specifiedMaxDPI) {
+            generateGameBoard();
+        }
+        
 
     }
     generateGameBoard();

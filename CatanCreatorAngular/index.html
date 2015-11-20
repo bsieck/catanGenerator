@@ -299,7 +299,9 @@
                             </div>
                             <div id="h" class="hex">
                                 <div class="top"></div>
-                                <div class="middle">9</div>
+                                <div class="middle">
+                                    
+                                </div>
                                 <div class="bottom"></div>
                             </div>
                             <div id="h" class="hex">
@@ -538,14 +540,17 @@
                 <h3>Max Dots Per Intersection</h3>
                 <form id="dpi-range-form" action="#">
                     <p class="range-field">
-                        <input type="range" id="dpi-range-slider" min="4" max="15" />
+                        <input type="range" id="dpi-range-slider" min="12" max="15" value="15" />
                     </p>
                 </form>
-                <h3>Port </h3>
-                <form id="port-range-form" action="#">
-                    <p class="range-field">
-                        <input type="range" id="port-range-slider" min="0" max="100" />
-                    </p>
+                <form id="port-randomize-form" action="#">
+                    <input type="checkbox" class="filled-in" id="filled-in-box"  />
+                        <label for="filled-in-box">Randomize Ports</label>
+                        <!--
+            <p class="range-field">
+                <input type="range" id="port-range-slider" min="0" max="100" value="100"/>
+            </p>
+                -->
                 </form>
                 <div class="col-sm-12 text-center">
                     <button id="generate-board-btn" class="btn center-block">Generate</button>

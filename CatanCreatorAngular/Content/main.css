@@ -51,7 +51,7 @@ footer {
   padding-left: 0;
 }
 #dpi-range-form,
-#port-range-form {
+#port-randomize-form {
   margin-top: 50px;
 }
 .hex {
@@ -72,6 +72,32 @@ footer {
   color: #1d1d1d;
   font-size: 18px;
   line-height: 30px;
+  /*
+    span {
+        width: 100%;
+        
+    }
+
+    ul {
+        list-style-type: none;
+        text-align: center;
+        height: 4px;
+        width: 34px;
+        margin-top: -20px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0;
+        li {
+            height: 4px;
+            width: 4px;
+            border-radius: 50%;
+            background-color: red;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            display: inline-block;
+        }
+    }
+        */
 }
 .hex .bottom {
   width: 0;
