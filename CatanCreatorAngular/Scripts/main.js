@@ -392,14 +392,14 @@
     ];
 
     var portBaseStack = [
-        { type: "Br"},
         { type: "Wd"},
-        { type: "Wh"},
+        { type: "Br"},
+        { type: "3:1"},
+        { type: "3:1"},
         { type: "Sh"},
+        { type: "3:1"},
         { type: "Or"},
-        { type: "3:1"},
-        { type: "3:1"},
-        { type: "3:1"},
+        { type: "Wh"},
         { type: "3:1"}
     ];
 
@@ -501,20 +501,19 @@
 
     
 
-    var maxDPIVal = $('#dpi-range-slider').val();
+    var maxDPIVal = 15;
     var dpiDebug = $('#current-max-val');
     var randomPorts = false;
     dpiDebug.text(maxDPIVal);
 
-
-    $('#dpi-range-slider').on('change', function () {
+    $('select').change(function() {
         maxDPIVal = this.value;
-        dpiDebug.text(maxDPIVal);
     });
 
     $('#filled-in-box').click(function () {
         randomPorts = !randomPorts;
     });
+
 
     /*
     $('#port-range-slider').on('change', function () {
@@ -867,9 +866,16 @@
 
     }
 
+    var validGame = true;
+    var checkedOnce = false;
+    var numTries = 0;
+
     function generateGameBoard() {
         console.clear();
+        
+
         var specifiedMaxDPI = maxDPIVal;
+        validGame = false;
         resetStacks();
         resetGameData();
         gameObjectData = [];
@@ -882,6 +888,10 @@
             [0, 0, 0, 0],
             [0, 0, 0],
         ];
+
+        if (!validGame && !checkedOnce) {
+            $('#game-status').addClass('working');
+        }
         
         console.clear();
 
@@ -897,13 +907,26 @@
         console.log('Actual Max DPI: ' + findMaxValueIntersection());
         console.table(gameObjectData);
         console.table(gameDataArray);
+
+        
         
         if (findMaxValueIntersection() > specifiedMaxDPI) {
+            validGame = false;
+            numTries++;
             generateGameBoard();
+            $('#game-status').text(numTries);
+        } else {
+            $('#game-status').removeClass('working');
+            validGame = true;
+            checkedOnce = false;
         }
         
 
     }
+
+    $(document).ready(function () {
+        $('select').material_select();
+    });
     generateGameBoard();
     $('#generate-board-btn').click(generateGameBoard);
     

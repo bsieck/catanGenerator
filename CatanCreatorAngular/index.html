@@ -3,574 +3,600 @@
 <head>
     <title>Catan Creator</title>
     <script src="Scripts/jquery-2.1.4.min.js"></script>
-    <script src="Scripts/d3/d3.min.js"></script>
+    <script src="Scripts/materialize.min.js"></script>
     <script src="Scripts/main.js"></script>
     <link rel="stylesheet" href="Content/main.css">
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="Content/materialize/css/materialize.min.css">
+    <link rel="stylesheet" href="Content/materialize-v0.97.1/css/materialize.min.css">
 </head>
 <body>
-
-    <div class="container-fluid">
-        <div class="row no-gutter">
-            <div class="col-md-12 text-center hidden">
-                <h1>Catan Generator</h1>
-                <h2 id="current-resource">Resource Type</h2>
-                <h2 id="current-number-token">Resource Number Token</h2>
-                <div id="board-container" class="center-block"></div>
-            </div>
-            <div class="col-md-12 text-center">
-                <div id="board-container-2">
-                    <div style="float: left;">
-                        <div class="hex-row">
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            
-                        </div>
-                        <div class="hex-row even">
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                        </div>
-                        <div class="hex-row">
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-
-                        </div>
-                        <div class="hex-row even">
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                        </div>
-                        <div class="hex-row">
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-
-                        </div>
-                        <div class="hex-row even">
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle">8</div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle">10</div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle">
-                                    
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row no-gutter">
+                <div class="col-md-12 text-center hidden">
+                    <h1>Catan Generator</h1>
+                    <h2 id="current-resource">Resource Type</h2>
+                    <h2 id="current-number-token">Resource Number Token</h2>
+                    <div id="board-container" class="center-block"></div>
+                </div>
+                <div class="col-md-12 text-center">
+                    <div id="board-container-2">
+                        <div style="float: left;">
+                            <div class="hex-row">
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
                                 </div>
-                                <div class="bottom"></div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+
                             </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
+                            <div class="hex-row even">
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
                             </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
+                            <div class="hex-row">
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+
                             </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
+                            <div class="hex-row even">
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
                             </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
+                            <div class="hex-row">
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+
                             </div>
-                        </div>
-                        <div class="hex-row">
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
+                            <div class="hex-row even">
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle">8</div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle">10</div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle">
+
+                                    </div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
                             </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
+                            <div class="hex-row">
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+
                             </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
+                            <div class="hex-row even">
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
                             </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
+                            <div class="hex-row">
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+
                             </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
+                            <div class="hex-row even">
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div id="h" class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
+                                <div class="hex">
+                                    <div class="top"></div>
+                                    <div class="middle"></div>
+                                    <div class="bottom"></div>
+                                </div>
                             </div>
 
                         </div>
-                        <div class="hex-row even">
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                        </div>
-                        <div class="hex-row">
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-
-                        </div>
-                        <div class="hex-row even">
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div id="h" class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                            <div class="hex">
-                                <div class="top"></div>
-                                <div class="middle"></div>
-                                <div class="bottom"></div>
-                            </div>
-                        </div>
-                        
                     </div>
+
                 </div>
 
-            </div>
 
-            <div class="col-sm-12">
-                <h3 id="current-max-val">0</h3>
-                <h3 id="current-port-val">0</h3>
+                <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+                    
+                    <!--
+                    <div id="game-status" class="center-block">1</div>
+                    -->
+                    <h3>Preferences</h3>
+                    <div class="col-xs-12 text-center">
+                        <form id="game-pref-form" action="#">
+                            <div class="input-field">
+                                <select>
+                                    <option value="11">Low</option>
+                                    <option value="13">Medium</option>
+                                    <option value="15">High</option>
+                                </select>
+                                <label>Maximum Dots per Intersection</label>
+                            </div>
+                            <!--
+                            <p>
+                                <input class="with-gap" name="group1" type="radio" id="dpi-low" />
+                                <label for="dpi-low">Low</label>
+                            </p>
+                            <p>
+                                <input class="with-gap" name="group1" type="radio" id="dpi-med" />
+                                <label for="dpi-med">Medium</label>
+                            </p>
+                            <p>
+                                <input class="with-gap" name="group1" type="radio" id="dpi-high" />
+                                <label for="dpi-high">High</label>
+                            </p>
+                                -->
+                    <div id="random-port-cb">
+                        <input type="checkbox" class="filled-in" id="filled-in-box" />
+                        <label for="filled-in-box">Randomize Ports</label>
+                    </div>
+                    </form>
+                </div>
 
-            </div>
-            <div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4">
-                <h3>Max Dots Per Intersection</h3>
+                <!--
                 <form id="dpi-range-form" action="#">
                     <p class="range-field">
                         <input type="range" id="dpi-range-slider" min="12" max="15" value="15" />
                     </p>
                 </form>
-                <form id="port-randomize-form" action="#">
-                    <input type="checkbox" class="filled-in" id="filled-in-box"  />
-                        <label for="filled-in-box">Randomize Ports</label>
-                        <!--
-            <p class="range-field">
-                <input type="range" id="port-range-slider" min="0" max="100" value="100"/>
-            </p>
-                -->
-                </form>
+                    -->
+
                 <div class="col-sm-12 text-center">
                     <button id="generate-board-btn" class="btn center-block">Generate</button>
                 </div>
             </div>
-            
-            
+
+
         </div>
 
-    </div>
+        </div>
 
 
-    <footer class="page-footer blue-grey lighten-3">
-        <div class="footer-copyright">
-            <div class="container">
-                © 2015 Brennan Sieck
-                <a class="grey-text text-lighten-4 right" href="#!"></a>
+        <footer class="page-footer blue-grey lighten-3 hidden">
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2015 Brennan Sieck
+                    <a class="grey-text text-lighten-4 right" href="#!"></a>
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+    </section>
     <script type="text/javascript" src="Scripts/materialize/materialize.min.js"></script>
 </body>
 </html>

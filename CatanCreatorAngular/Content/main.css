@@ -15,9 +15,24 @@ h3 {
 body {
   background-color: #fbfbfb;
   font-family: Roboto sans-serif;
+  display: flex;
+  min-height: 100vh;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.content {
+  height: 100%;
+  -ms-flex: 1 0 auto;
+  -webkit-flex: 1 0 auto;
+  flex: 1 0 auto;
+  padding-top: 50px;
 }
 footer {
-  padding-top: 0 !important;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 #board-container {
   display: inline-block;
@@ -50,9 +65,27 @@ footer {
   padding-right: 0;
   padding-left: 0;
 }
-#dpi-range-form,
-#port-randomize-form {
-  margin-top: 50px;
+#game-pref-form {
+  display: inline-block;
+}
+#game-status {
+  height: 40px;
+  width: 60px;
+  border-radius: 3px;
+  background-color: lightgreen;
+  margin-top: 25px;
+}
+.input-field {
+  margin-bottom: 40px;
+}
+.working {
+  background-color: indianred !important;
+}
+.caret {
+  border-top: none!important;
+}
+#random-port-cb {
+  margin-bottom: 40px;
 }
 .hex {
   float: left;
@@ -113,7 +146,7 @@ footer {
 }
 #board-container-2 {
   display: inline-block;
-  margin: 0 auto;
+  margin: 0 auto 50px auto;
 }
 #current-max-val {
   text-align: center;
